@@ -28,7 +28,7 @@ const Profile = () => {
   const fetchData = async () => {
     const token = Cookies.get("token");
 
-    const response = await fetch("http://localhost:3001/api/rota-protegida", {
+    const response = await fetch("https://api-e-gestor.vercel.app/api/rota-protegida", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
