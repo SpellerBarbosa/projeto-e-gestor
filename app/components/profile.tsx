@@ -5,7 +5,7 @@ import Style from "/public/css/Profile.module.css";
 const Profile = () => {
   const [acesso, setAcesso] = useState<string>("");
   const [usuario, setUsuario] = useState<string>("");
-  const [ativar, setAtivar] = useState<boolean | null>(true);
+  const [ativar, setAtivar] = useState<boolean | null>(false);
   const [btnSolicitacoes, setBtnSolicitacoes] = useState<boolean | null>();
   const [btnCadastro, setBtnCadastro] = useState<boolean|null>();
 
