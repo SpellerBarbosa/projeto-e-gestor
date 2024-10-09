@@ -159,12 +159,20 @@
 @media screen and (min-width: 1024px){
 
     .profile_container{
-        width: 30%;
+        width: 25%;
+    }
+
+    .profile_container.ativa{
+        width: 25%;
     }
 }
 
 @media screen and (min-width: 1280px){
     .profile_container{
+        width: 20%;
+    }
+
+    .profile_container.ativa{
         width: 20%;
     }
 }
