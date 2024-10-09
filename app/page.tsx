@@ -27,7 +27,7 @@ export default function Home() {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://api-e-gestor.vercel.app/api/login", {
+      const response = await fetch("https://gestor-api-alpha.vercel.app/api/login", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -46,7 +46,7 @@ export default function Home() {
         setTimeout(async () => {
           const token = Cookies.get('token');
 
-        const verifyResponse = await fetch("https://api-e-gestor.vercel.app/api/rota-protegida",{
+        const verifyResponse = await fetch("https://gestor-api-alpha.vercel.app/api/rota-protegida",{
           method:"GET",
           headers:{
             "Authorization":`Bearer ${token}`
