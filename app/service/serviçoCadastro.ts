@@ -14,17 +14,17 @@ const servicoCadastro = async (
         setError("Todos os campos devem ser preenchidos");
         return
     }
-    console.log(empresa, email, password, acesso)
+
     try {
     
-        const response = await fetch("https://gestor-api-alpha.vercel.app/api/cadastrar-empresas",{
+        const response = await fetch("https://gestor-api-alpha.vercel.app/cadastrar-empresas",{
             method:"POST",
             headers:{
                 "Content-type":"application/json"
             },
             body:JSON.stringify({
+                empresa:empresa.toLowerCase().trim(),
                 email: email.toLowerCase().trim(),
-                empresa: empresa.toLowerCase().trim(),
                 password: password.toLowerCase().trim(),
                 acesso: acesso.toLowerCase().trim()
             })

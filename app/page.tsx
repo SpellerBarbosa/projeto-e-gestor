@@ -54,7 +54,7 @@ export default function Home() {
         });
 
         const verifyData = await verifyResponse.json();
-        console.log(verifyData)
+      
         if(verifyResponse.ok){
           if(verifyData.user.acesso === "administrador"){
             router.push("/painel-adm");

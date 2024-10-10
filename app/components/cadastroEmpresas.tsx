@@ -19,8 +19,8 @@ const CadastroEmpresas = () => {
 
   const handlerCadastro = async (e: React.FormEvent) =>{
     e.preventDefault()
-    console.log(email, empresa, password, acesso)
-    await servicoCadastro(email, empresa, password, acesso, error, setError,setSucess, clearFields)
+    
+    await servicoCadastro(empresa, email, password, acesso, error, setError,setSucess, clearFields)
   }
 
   return (

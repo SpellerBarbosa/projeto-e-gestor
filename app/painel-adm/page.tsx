@@ -9,7 +9,6 @@ import { useSelector } from "react-redux";
 export default function  Painel_adm (){
 
     const componenteAtivo = useSelector((state: any) => state.menu.componenteAtivo);
-    console.log(componenteAtivo)
 
     return(
         <main className={Style.main_container}>
@@ -17,12 +16,7 @@ export default function  Painel_adm (){
             <section>
                 {componenteAtivo === 'admissoes' && <Admissoes />}
                 {componenteAtivo === 'demissoes' && <Demissoes />}
-                {componenteAtivo === 'cadastroEmpresas' && (
-                    <>
-                        {console.log('Rendering CadastroEmpresas')}
-                        <CadastroEmpresas />
-                    </>
-                )}
+                {componenteAtivo === 'cadastroEmpresas' && <CadastroEmpresas />}
             </section>
         </main>
     );
