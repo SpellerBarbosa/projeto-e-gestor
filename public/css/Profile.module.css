@@ -7,6 +7,7 @@
     align-items: center;
     overflow: hidden;
     transition: width 0.5s ease-in-out;
+    position: fixed;
 }
 
 .profile_container.ativa{
@@ -88,6 +89,7 @@
     color: #fff;
     margin-top: 10px;
     text-shadow: 2px 2px rgb(0, 0, 0);
+    font-size: 15px;
 }
 
 .profile_container article div h2{
@@ -96,6 +98,7 @@
     margin: 10px;
     letter-spacing: .5px;
     text-shadow: 2px 2px rgb(0, 0, 0);
+    font-size: 15px;
 }
 .profile_container article div{
     
@@ -149,11 +152,25 @@
     width: 90%;
     text-align: center;
     margin-bottom: 3px;
+    cursor: pointer;
 }
 
 .lista_solicitacoes.abrir, .lista_cadastro.abrir{
     max-height: 200px;
     opacity: 1;
+}
+
+@media screen and (min-width: 414px){
+    .profile_container{
+        width: 80%;
+    }
+    .profile_container article div h1 {
+        font-size: 18px;
+    }
+
+    .profile_container article div h2{
+        font-size: 20px;
+    }
 }
 
 @media screen and (min-width: 1024px){
@@ -162,12 +179,20 @@
     }
 
     .profile_container{
-        width: 30%;
+        width: 25%;
+        position: relative;
+    }
+
+    .profile_container.ativa{
+        width: 25%;
+        
     }
 }
 
 @media screen and (min-width: 1280px){
     .profile_container{
         width: 20%;
+        position: relative;
     }
+
 }

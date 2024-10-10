@@ -1,13 +1,22 @@
+'use client'
+
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import Style from "/public/css/Profile.module.css";
+import { useDispatch, UseDispatch } from "react-redux";
+import { setComponenteAtivo } from "../store/slices/menuSlice";
 
 const Profile = () => {
   const [acesso, setAcesso] = useState<string>("");
   const [usuario, setUsuario] = useState<string>("");
-  const [ativar, setAtivar] = useState<boolean | null>(false);
+  const [ativar, setAtivar] = useState<boolean | null>(true);
   const [btnSolicitacoes, setBtnSolicitacoes] = useState<boolean | null>();
   const [btnCadastro, setBtnCadastro] = useState<boolean|null>();
+  const dispatch = useDispatch();
+
+  const handleMenuClick = (componente: any) =>{
+    dispatch(setComponenteAtivo(componente));
+  }
 
   const toogleAtivar = () => {
     setAtivar((prevAtivar) => !prevAtivar);
@@ -68,12 +77,12 @@ const Profile = () => {
         <nav className={Style.menu}>
           <button className={`${Style.btn_solicitacoes}`} onClick={menuSolicitacoes}>Solicitações</button>
           <ul className={`${Style.lista_solicitacoes} ${btnSolicitacoes ? Style.abrir: ""}`}>
-            <li>Admissões</li>
-            <li>Demissões</li>
+            <li onClick={() => handleMenuClick('admissoes')}>Admissões</li>
+            <li onClick={()=> handleMenuClick('demissoes')}>Demissões</li>
           </ul>
           <button className={Style.btn_cadastro} onClick={menuCadastro}>Cadastros</button>
           <ul className={`${Style.lista_cadastro} ${btnCadastro ? Style.abrir: ""}`}>
-            <li>Empresas</li>
+            <li onClick={() => handleMenuClick('cadastroEmpresas')}>Empresas</li>
           </ul>
         </nav>
       </section>
