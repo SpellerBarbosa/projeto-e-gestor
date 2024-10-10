@@ -17,7 +17,7 @@ const servicoCadastro = async (
 
     try {
     
-        const response = await fetch("http://localhost:3001/api/cadastro-empresa",{
+        const response = await fetch("https://gestor-api-alpha.vercel.app/api/cadastro-empresa",{
             method:"POST",
             headers:{
                 "Content-type":"application/json"
