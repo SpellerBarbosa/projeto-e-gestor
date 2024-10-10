@@ -174,18 +174,21 @@
 }
 
 @media screen and (min-width: 1024px){
-    .button{
-        display: none;
-    }
 
     .profile_container{
         width: 25%;
+<<<<<<< HEAD
         position: relative;
+=======
+>>>>>>> 092e2b9fd96ecc6d587c0e7d4e692db7f8a750c8
     }
 
     .profile_container.ativa{
         width: 25%;
+<<<<<<< HEAD
         
+=======
+>>>>>>> 092e2b9fd96ecc6d587c0e7d4e692db7f8a750c8
     }
 }
 
@@ -195,4 +198,11 @@
         position: relative;
     }
 
+<<<<<<< HEAD
 }
+=======
+    .profile_container.ativa{
+        width: 20%;
+    }
+}
+>>>>>>> 092e2b9fd96ecc6d587c0e7d4e692db7f8a750c8
