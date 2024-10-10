@@ -8,7 +8,7 @@ const CadastroEmpresas = () => {
   const [email, serEmail] = useState<string>("");
   const [empresa,setEmpresa]= useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [acesso, setAcesso] = useState("");
+  const [acesso, setAcesso] = useState<string>("");
 
   const clearFields = () =>{
     setEmpresa("")
@@ -17,7 +17,9 @@ const CadastroEmpresas = () => {
     setAcesso("")
   }
 
-  const handlerCadastro = async () =>{
+  const handlerCadastro = async (e: React.FormEvent) =>{
+    e.preventDefault()
+    console.log(email, empresa, password, acesso)
     await servicoCadastro(email, empresa, password, acesso, error, setError,setSucess, clearFields)
   }
 
@@ -29,23 +31,24 @@ const CadastroEmpresas = () => {
       <form onSubmit={handlerCadastro}>
         <div>
           <label htmlFor="empresa">Empresa:</label>
-          <input type="text" id="empresa" value={empresa} onChange={(e)=> setEmpresa(e.target.value) }/>
+          <input type="text" id="empresa" value={empresa} onChange={(event)=> setEmpresa(event.target.value) }/>
         </div>
         <div>
           <label htmlFor="email">Email:</label>
-          <input type="text" id="email" value={email} onChange={(e) => serEmail(e.target.value)} />
+          <input type="text" id="email" value={email} onChange={(event) => serEmail(event.target.value)} />
         </div>
         <div>
           <label htmlFor="password">Password:</label>
-          <input type="password" id="password" value={password} onChange={(e)=> setPassword(e.target.value)}/>
+          <input type="password" id="password" value={password} onChange={(event)=> setPassword(event.target.value)}/>
         </div>
-        <select name="acesso" id="acesso" value={acesso} onChange={(e) => setAcesso(e.target.value)}>
+        <select name="acesso" id="acesso" value={acesso} onChange={(event) => setAcesso(event.target.value)}>
           <option value="" disabled>Escolha o tipo do acesso</option>
           <option value="administrador">Administrador</option>
           <option value="cliente">Cliente</option>
         </select>
-        <button>Cadastrar</button>
-        <span>mensagem</span>
+        <button type="submit">Cadastrar</button>
+        {error && <span className={Styles.error}>{error}</span>}
+        {sucess && <span className={Styles.sucess}>{sucess}</span>}
       </form>
     </main>
   );

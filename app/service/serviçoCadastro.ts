@@ -10,14 +10,14 @@ const servicoCadastro = async (
     setSucess:React.Dispatch<React.SetStateAction<any>>,
     clearFields: () => void,
 ) =>{
-    if(!empresa || !!email || !password || !!acesso){
+    if(!empresa || !email || !password || !acesso){
         setError("Todos os campos devem ser preenchidos");
         return
     }
-
+    console.log(empresa, email, password, acesso)
     try {
     
-        const response = await fetch("https://gestor-api-alpha.vercel.app/api/cadastro-empresa",{
+        const response = await fetch("http://localhost:3001/api/cadastrar-empresas",{
             method:"POST",
             headers:{
                 "Content-type":"application/json"
@@ -31,14 +31,13 @@ const servicoCadastro = async (
         });
     
         const data = await response.json();
-    
+        
         if(response.ok){
             setSucess(data.mensagem)
-            clearFields();
             setTimeout(() => {
                 setSucess("");
                 setError("");
-            }, 1500);
+            }, 2500);
         }else{
             setError(data.mensagem)
         }
